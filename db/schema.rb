@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_22_071400) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_075851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.integer "category_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "jwt_denylist", force: :cascade do |t|
     t.string "jti", null: false
@@ -20,6 +27,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_071400) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.integer "category_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reads", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.boolean "is_readen"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_reads_on_post_id"
+    t.index ["user_id"], name: "index_reads_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,4 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_071400) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reads", "posts"
+  add_foreign_key "reads", "users"
 end

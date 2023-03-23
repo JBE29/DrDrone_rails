@@ -2,6 +2,8 @@
 
 ## Make it work in localhost:3000
 
+`bundle install`
+
 `sudo service postgresql start`
 
 `rails db:create`

@@ -1,24 +1,27 @@
-# README
+# DR DRONE BACKEND API IN RUBY ON RAILS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Make it work in localhost:3000
 
-Things you may want to cover:
+`sudo service postgresql start`
 
-* Ruby version
+`rails db:create`
 
-* System dependencies
+`rails db:migrate`
 
-* Configuration
+`rails db:seed`
 
-* Database creation
+`rails server`
 
-* Database initialization
+## Link in production
+Back-end rails app : https://backend-drdrone.herokuapp.com/
 
-* How to run the test suite
+Front-end react app : https://thp-dr-drone-react-angel-git-clone.vercel.app/
 
-* Services (job queues, cache servers, search engines, etc.)
+## Front-end React repo
 
-* Deployment instructions
+https://github.com/Angel-git-clone/THP-Dr-Drone-React
 
-* ...
+## Versions
+
+Ruby 3.0.0
+Rails 7.0.4

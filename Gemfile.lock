@@ -170,6 +170,7 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    table_print (1.5.7)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -198,6 +199,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors (~> 2.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  table_print
   tzinfo-data
 
 RUBY VERSION
